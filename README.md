@@ -1,12 +1,12 @@
 
-![cname](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/c89f6dfe-f7e4-4865-9bae-01f78aeec060)
+![cname](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/c89f6dfe-f7e4-4865-9bae-01f78aeec060) Figure 1.0
 
 
 <h1>Creating an A - Record and CNAME Record in DNS</h1>
 
 This tutorial will distinguish an A-Record from a CNAMe and instruct how to create each.<br />
 
-**Must Know** - [A-Records](https://support.google.com/a/answer/2576578?hl=en#:~:text=An%20A%20record%20maps%20a,configured%20for%20one%20domain%20name.&zippy=%2Chow-a-records-work%2Cconfigure-a-records-now) are mappings that link domain names to physical computer IP addresses.  A [CNAME Record](https://en.wikipedia.org/wiki/CNAME_record) is a type of DNS record that maps an alias or subdomain name to it's true domain. 
+**Must Know** - [A-Records](https://support.google.com/a/answer/2576578?hl=en#:~:text=An%20A%20record%20maps%20a,configured%20for%20one%20domain%20name.&zippy=%2Chow-a-records-work%2Cconfigure-a-records-now) are mappings that link domain names to physical computer IP addresses.  A [CNAME Record](https://en.wikipedia.org/wiki/CNAME_record) is a type of DNS record that maps an alias or subdomain name to it's true domain. (As shown in Figure 1.0).  In order to follow these instructions, it is recommended to have a Virtual Machine (VM) connected to a Domain Contoller (DC) with Active Directory already setup. 
 
 <h2>Video Demonstration</h2>
 
@@ -25,12 +25,13 @@ This tutorial will distinguish an A-Record from a CNAMe and instruct how to crea
 
 <h2>Instructions</h2>
 
-Connect/log into DC-1 as your domain admin account (mydomain.com\jane_admin)
-Connect/log into Client-1 as an admin (mydomain\jane_admin)
-From Client-1 try to ping “mainframe” notice that it fails
-Nslookup “mainframe” notice that it fails (no DNS record)
-Create a DNS A-record on DC-1 for “mainframe” and have it point to DC-1’s Private IP address
-Go back to Client-1 and try to ping it. Observe that it works
+**Create an A-Record**
+- Connect/log into DC-1 as your domain admin account. 
+- Connect/log into Client-1 as an admin (mydomain\jane_admin)
+- From Client-1 try to ping “mainframe” notice that it fails
+- Nslookup “mainframe” notice that it fails (no DNS record)
+- Create a DNS A-record on DC-1 for “mainframe” and have it point to DC-1’s Private IP address
+- Go back to Client-1 and try to ping it. Observe that it works
 
 Local DNS Cache Exercise
 Go back to DC-1 and change mainframe’s record address to 8.8.8.8
