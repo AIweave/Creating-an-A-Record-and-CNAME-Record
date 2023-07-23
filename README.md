@@ -4,9 +4,9 @@
 
 <h1>Creating an A - Record and CNAME Record in DNS</h1>
 
-This tutorial will distinguish an A-Record from a CNAMe and instruct how to create each.<br />
+This tutorial will distinguish an A-Record from a CNAME and instruct how to create each.<br />
 
-**Must Know** - [A-Records](https://support.google.com/a/answer/2576578?hl=en#:~:text=An%20A%20record%20maps%20a,configured%20for%20one%20domain%20name.&zippy=%2Chow-a-records-work%2Cconfigure-a-records-now) are mappings that link domain names to physical computer IP addresses.  A [CNAME Record](https://en.wikipedia.org/wiki/CNAME_record) is a type of DNS record that maps an alias or subdomain name to it's true domain. (As shown in Figure 1.0).  
+**Must Know** - [A-Records](https://support.google.com/a/answer/2576578?hl=en#:~:text=An%20A%20record%20maps%20a,configured%20for%20one%20domain%20name.&zippy=%2Chow-a-records-work%2Cconfigure-a-records-now) are mappings that link domain names to physical computer IP addresses.  A [CNAME Record](https://en.wikipedia.org/wiki/CNAME_record) is a type of DNS record that maps an alias or subdomain name to it's target domain. (As shown in Figure 1.0).  
 
 In order to follow these instructions, it is recommended to have a Virtual Machine (VM) connected to a Domain Contoller (DC) with Active Directory already setup. 
 
@@ -54,16 +54,18 @@ In order to follow these instructions, it is recommended to have a Virtual Machi
 ![Screen Shot 2023-07-23 at 2 00 05 AM](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/f3a5f2f1-fd01-41e4-8877-a4bdc40a0bfc)
 
 
-Local DNS Cache Exercise
-Go back to DC-1 and change mainframe’s record address to 8.8.8.8
-Go back to Client-1 and ping “mainframe” again. Observe that it still pings the old address
-Observe the local dns cache (ipconfig /displaydns)
-Flush the DNS cache (ipconfig /flushdns). Observe that the cache is empty
-Attempt to ping “mainframe” again. Observe the address of the new record is showing up
+**Create a CNAME Record**
+- Return to the Domain Controller DNS page where the A-Record (mainframe) was created. Right click the mouse to see options to "Name Alias (CNAME)...".
+  
+![Screen Shot 2023-07-23 at 2 06 07 AM](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/95c4507d-e95a-4fc2-80e6-d98c7ab2ed79)
 
-CNAME Record Exercise
-Go back to DC-1 and create a CNAME record that points the host “search” to “www.google.com”
-Go back to Client-1 and attempt to ping “search”, observe the results of the CNAME record
-On Client-1, nslookup “search”, observe the results of the CNAME record
+- Select "Name Alias (CNAME)...".
+- Create an alias name under "Alias name..." while entering the Fully Qualified Domain Name (FQDN) of target host. For an example, Alias name: search, (FQDN): wwww.google.com.
 
-Finish
+![Screen Shot 2023-07-23 at 2 13 21 AM](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/ca3b0bd1-6198-4b3e-9c07-d13a40c8b970)
+
+  
+- After clicking "OK",go back to Client-1 and attempt to ping “search”. Observe the results of the CNAME record.
+
+![Screen Shot 2023-07-23 at 2 17 40 AM](https://github.com/AIweave/Creating-an-A-Record-and-CNAME-Record/assets/121763338/f10a0d88-c367-4782-83a8-87cf29dd8ce8)
+
