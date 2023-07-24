@@ -10,10 +10,6 @@ This tutorial will distinguish an A-Record from a CNAME and instruct how to crea
 
 In order to follow these instructions, it is recommended to have a Virtual Machine (VM) connected to a Domain Contoller (DC) with Active Directory already setup. 
 
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to create, work, and resolves tickets within osTicket](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines)
